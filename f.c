@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:21:22 by abdamoha          #+#    #+#             */
-/*   Updated: 2022/10/28 16:27:38 by abdamoha         ###   ########.fr       */
+/*   Updated: 2022/10/28 16:54:58 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,14 @@ int	ft_putnbr(int nb)
 		ft_putnbr(nb % 10);
 	}
 	else
-		ft_putchar(nb + '0');
-	//  return (x);
-}
-
-int	ft_tolower(int n)
-{
-	if (n >= 'A' && n <= 'Z')
 	{
-		return (n + 32);
+		ft_putchar(nb + '0');
 	}
-	return (n);
+	  return (nb);
 }
 
-unsigned int	ft_uputnbr(unsigned int nb)
+int	ft_uputnbr(unsigned int nb)
 {
-	unsigned int	n;
-	
 	if (nb < 0)
 	{
 		ft_putchar('-');
@@ -77,15 +68,6 @@ unsigned int	ft_uputnbr(unsigned int nb)
 	}
 	else
 		ft_putchar(nb + '0');
+	return (nb);
 
 }
-// int main()
-// {
-// 	int i = 5654;
-
-// 	printf("%d\n", ft_putnbr(i));
-// 	printf("%d", i);
-// }
-
-// 2147483647
-// 4294967295
