@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:13:01 by abdamoha          #+#    #+#             */
-/*   Updated: 2022/10/31 19:31:51 by abdamoha         ###   ########.fr       */
+/*   Updated: 2022/10/31 22:49:31 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int		ft_uputnbr(unsigned int nb);
 
 int		hexa_lower(unsigned int x);
 
-size_t	printingaddress(size_t n);
+int		hexa_address(unsigned long x);
+
+int		printingaddress(unsigned long n);
 
 size_t	ft_strlen(const char *str);
 

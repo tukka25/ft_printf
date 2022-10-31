@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:21:22 by abdamoha          #+#    #+#             */
-/*   Updated: 2022/10/31 19:31:33 by abdamoha         ###   ########.fr       */
+/*   Updated: 2022/10/31 22:43:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
 	while (str[i] != '\0')
 	{
 		write (1, &str[i], 1);
@@ -82,8 +87,6 @@ int	hexa_upper(unsigned int x)
 	char	str[100];
 
 	i = 0;
-	if (x >= 10 && x <= 15)
-		str[i++] = x + 55;
 	while (x / 16 != 0)
 	{
 		if (x % 16 >= 10 && x % 16 <= 15)
@@ -95,12 +98,11 @@ int	hexa_upper(unsigned int x)
 	if (x % 16 >= 10 && x % 16 <= 15)
 		str[i++] = x % 16 + 55;
 	else
-	{
 		str[i++] = x % 16 + 48;
-	}
 	str[i] = '\0';
-	while (i-- >= 0)
-		write(1, &str[i], 1);
+	i = i - 1;
+	while (i >= 0)
+		write(1, &str[i--], 1);
 	return (ft_strlen(str));
 }
 // int main ()
