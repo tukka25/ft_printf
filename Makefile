@@ -1,6 +1,8 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 
-SRCS = f.c f2.c ft_printf.c \
+SRCS =  ft_printf.c 	\
+		f.c 			\
+		f2.c 			
 
 OBJS = $(SRCS:.c=.o)
 
@@ -13,7 +15,7 @@ all:$(NAME)
 $(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS) 
 clean:
-	rm -f $(OBJS) $(NAME)
+	rm -f $(OBJS)
 fclean: clean
 	rm -f $(NAME)
 
