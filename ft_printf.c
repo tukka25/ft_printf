@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:59:04 by abdamoha          #+#    #+#             */
-/*   Updated: 2022/10/31 23:12:30 by abdamoha         ###   ########.fr       */
+/*   Updated: 2022/11/01 12:28:59 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,39 @@ int	ft_printf(const char *str, ...)
 		else if (str[i] == '%')
 		{
 			i++;
-			if (str[i] == '%')
-				x += ft_putchar('%');
-			else if (str[i] == '\n')
-				write (1, "\n", 1);
-			else if (str[i] == 'c')
-				x += ft_putchar(va_arg(args, int));
-			else if (str[i] == 's')
-				x += ft_putstr(va_arg(args, char *));
-			else if (str[i] == 'd' || str[i] == 'i')
-				x += ft_putnbr(va_arg(args, int));
-			else if (str[i] == 'x')
-				x += hexa_lower(va_arg(args, int));
-			else if (str[i] == 'X')
-				x += hexa_upper(va_arg(args, int));
-			else if (str[i] == 'u')
-				x += ft_uputnbr(va_arg(args, int));
-			else if (str[i] == 'p')
-				x += printingaddress(va_arg(args, size_t));
+			x += check_after_percent(str[i], args);
 		}
 		else
 			x += ft_putchar(va_arg(args, int));
 		i++;
 	}
 	va_end(args);
+	return (x);
+}
+
+int	check_after_percent(char s, va_list args)
+{
+	int		x;
+
+	x = 0;
+	if (s == '%')
+		x += ft_putchar('%');
+	else if (s == '\n')
+		write (1, "\n", 1);
+	else if (s == 'c')
+		x += ft_putchar(va_arg(args, int));
+	else if (s == 's')
+		x += ft_putstr(va_arg(args, char *));
+	else if (s == 'd' || s == 'i')
+		x += ft_putnbr(va_arg(args, int));
+	else if (s == 'x')
+		x += hexa_lower(va_arg(args, int));
+	else if (s == 'X')
+		x += hexa_upper(va_arg(args, int));
+	else if (s == 'u')
+		x += ft_uputnbr(va_arg(args, int));
+	else if (s == 'p')
+		x += printingaddress(va_arg(args, size_t));
 	return (x);
 }
 // int main(int ac, char **av)
@@ -61,9 +70,9 @@ int	ft_printf(const char *str, ...)
 // 	int m;
 // 	int n;
 
-// 	m = printf("%c", 127);
+// 	m = printf("%s", c);
 // 	printf("\n");
-// 	n = ft_printf("%c", 127);
+// 	n = ft_printf("%s", c);
 // 	//  n = printf("\, n%c %d\n", 'j', i);
 // 	printf("\nmine : %d  printf : %d \n", n, m);
 // 	// ft_printf("%x", i);

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:13:01 by abdamoha          #+#    #+#             */
-/*   Updated: 2022/10/31 22:49:31 by abdamoha         ###   ########.fr       */
+/*   Updated: 2022/11/01 12:25:53 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*ft_strcpy(char *dest, char *src);
 int		ft_uputnbr(unsigned int nb);
 
 int		hexa_lower(unsigned int x);
+
+int		check_after_percent(char s, va_list args);
 
 int		hexa_address(unsigned long x);
 
